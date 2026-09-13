@@ -8,6 +8,12 @@
     }
 }
 
+@media (max-width: 700px) { 
+    .nav-list { 
+        flex-direction: column; 
+    }
+}
+
 @layer base { 
     :root { 
         /* Color */ 
