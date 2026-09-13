@@ -14,6 +14,16 @@
     }
 }
 
+@media (prefers-reduced-motion: reduce) { 
+    *, 
+    *::before, 
+    *::after { 
+        scroll-behavior: auto; 
+        transition-duration: 0.01ms; 
+        animation-duration: 0.01ms; 
+    }
+}
+
 @layer base { 
     :root { 
         /* Color */ 
