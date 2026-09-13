@@ -1,4 +1,4 @@
-@layer reset,base, layout, components, utilities, overrides; 
+@layer reset, base, layout, components, utilities, overrides; 
 
 @layer reset { 
     *, 
@@ -88,8 +88,13 @@
         gap: var(--space-md); 
     }
 
+    .wrapper { 
+        inline-size: min(90%, 70rem);
+        margin-inline: auto; 
+    }
+
     .section { 
-        padding-block: var(--space-lg); 
+        padding-block: clamp(1.5rem, 4vw, 3rem);
     }
 }
 
@@ -146,6 +151,12 @@
     select:invalid, 
     textarea:invalid { 
         border-color: var(--accent); 
+    }
+
+    .schedule-grid {
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        gap: var(--space-md); 
     }
 
     .vendor-grid { 
