@@ -65,6 +65,12 @@
         max-width: 100%; 
         height: auto; 
     }
+
+    main { 
+        inline-size: min(90%, 70rem);
+        margin-inline: auto; 
+        padding-block: var(--space-lg); 
+    }
 }
 
 @layer layout { 
@@ -140,6 +146,42 @@
     select:invalid, 
     textarea:invalid { 
         border-color: var(--accent); 
+    }
+
+    .vendor-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        gap: var(--space-md); 
+    }
+
+    .vendor-card { 
+        container-type: inline-size; 
+        display: grid; 
+        gap: var(--space-md); 
+        padding: var(--space-md); 
+        border: 1px solid var(--border); 
+        border-radius: var(--radius); 
+        background: white; 
+    }
+
+    .vendor-card-content { 
+        display: grid; 
+        gap: var(--space-sm); 
+    }
+
+    .vendor-card-image { 
+        inline-size: 150px; 
+        block-size: 100px; 
+        object-fit: contain; 
+        margin-inline: auto; 
+    }
+
+    .vendor-card a {
+        color: black; 
+    }
+
+    .vendor-card a:hover { 
+        color: var(--accent); 
     }
 }
 @layer utilities { 
