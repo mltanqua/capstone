@@ -1,3 +1,52 @@
+/* CSS RESET */
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
 @layer reset, base, layout, components, utilities, overrides; 
 
 @layer reset { 
@@ -36,6 +85,15 @@
 
         /* Type */ 
         --font-body: Arial, Helvetica, sans-serif; 
+        --font-size-body: 1rem; 
+        --font-size-h1: clamp(2rem, 4vw, 2.5rem); 
+        --font-size-h2: 1.5rem; 
+        --font-size-h3: 1.3rem; 
+        --line-height-body: 1.5; 
+        --line-height-heading: 1.2; 
+        --measure: 65ch; 
+
+        /* This site uses system fonts only.*/ 
 
         /* Spacing */ 
         --space-sm: 0.5rem; 
@@ -51,25 +109,29 @@
 
     body { 
         font-family: var(--font-body); 
-        font-size: 1rem; 
-        line-height: 1.5; 
+        font-size: var(--font-size-body); 
+        line-height: var(--line-height-body); 
         color: var(--text); 
         background: var(--background); 
     }
     
     h1 { 
-        font-size: 2.25rem; 
+        font-size: var(--font-size-h1); 
         font-weight: bold; 
     }
 
     h2 { 
-        font-size: 1.5rem; 
+        font-size: var(--font-size-h2); 
         font-weight: bold; 
     }
 
     h3 { 
-        font-size: 1.3rem; 
+        font-size: var(--font-size-h3); 
         font-weight: bold; 
+    }
+
+    p {
+        max-inline-size: var(--measure);
     }
     
     a { 
@@ -90,13 +152,25 @@
 }
 
 @layer layout { 
-    .site-header, 
-    .site-footer { 
+    .site-header { 
         display: flex; 
         justify-content: space-between; 
         align-items: center; 
         gap: var(--space-md); 
         padding: 1rem 2rem; 
+    }
+
+    .site-footer { 
+        display: flex; 
+        justify-content: center;
+        align-items: center; 
+        padding: 1rem 2 rem; 
+        text-align: center; 
+    }
+
+    .site-footer p {
+        margin-inline: auto; 
+        text-align: center;
     }
 
     .grid { 
@@ -126,7 +200,7 @@
         padding: var(--space-sm) var(--space-md); 
         border: none; 
         border-radius: var(--radius); 
-        background: var(--primary); 
+        background: var(--secondary); 
         color: white; 
         text-decoration: none; 
         cursor: pointer; 
@@ -209,6 +283,17 @@
 
     .vendor-card a:hover { 
         color: var(--accent); 
+    }
+
+    .map-container {
+        aspect-ratio: 16 / 9; 
+        inline-size: 100%; 
+    }
+
+    .map-container iframe { 
+        inline-size: 100%; 
+        block-size: 100%; 
+        border: 0; 
     }
 }
 @layer utilities { 
