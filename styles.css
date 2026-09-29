@@ -47,7 +47,7 @@
         --primary: #d5def2; 
         --secondary: #3865c9; 
         --accent: #c2343b; 
-        --text: #1f1d1d; 
+        --text: white; 
         --border: #000000; 
 
         /* Type */ 
@@ -303,6 +303,7 @@
     .vendor-card-content { 
         display: grid; 
         gap: var(--space-sm); 
+        color: black; 
     }
 
     .vendor-card-image { 
