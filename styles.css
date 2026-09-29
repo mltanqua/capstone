@@ -25,6 +25,21 @@
     }
 }
 
+@media (min-width: 600px) {
+    #menu-toggle, 
+    nav label { 
+        display: none; 
+    }
+
+    nav ul { 
+        display: flex; 
+        flex-direction: row; 
+        max-height: none; 
+        overflow: visible; 
+        height: auto; 
+    }
+}
+
 @layer base { 
     :root { 
         /* Color */ 
@@ -101,6 +116,18 @@
         margin-inline: auto; 
         padding-block: var(--space-lg); 
     }
+
+    header,
+    footer { 
+        background: black; 
+        display: flex; 
+        align-items: center; 
+        padding: .75rem 1rem; 
+        position: relative; 
+        text-align: center; 
+        box-shadow: 0 15px 40px var(--secondary);
+        color: white; 
+    }
 }
 
 @layer layout { 
@@ -110,14 +137,6 @@
         align-items: center; 
         gap: var(--space-md); 
         padding: 1rem 2rem; 
-    }
-
-    .site-footer { 
-        display: flex; 
-        justify-content: center;
-        align-items: center; 
-        padding: 1rem 2 rem; 
-        text-align: center; 
     }
 
     .site-footer p {
@@ -173,6 +192,70 @@
         font-weight: bold; 
         text-decoration: underline; 
     }
+
+    nav ul {
+        margin: 0;
+        padding: 0; 
+        list-style: none; 
+        overflow: hidden; 
+        text-align: center; 
+        max-height: 0; 
+    }
+
+    nav label { 
+        cursor: pointer; 
+        display: inline-block; 
+        padding: 1.5rem; 
+        user-select: none; 
+    }
+
+    nav { 
+        margin-left: auto;
+    }
+
+    label span { 
+        background-color: white; 
+        display: block; 
+        height: .25rem; 
+        position: relative; 
+        transition: var(--background) .3s ease-out; 
+        width: 2rem; 
+    }
+
+    label span:before, 
+    label span:after { 
+        background: white; 
+        content: ''; 
+        display: block; 
+        height: 100%; 
+        position: absolute; 
+        transition: all .2s ease-out; 
+        width: 100%; 
+    }
+
+    label span:before { 
+        top: .75rem; 
+    }
+
+    label span:after { 
+        top:-.75rem; 
+    }
+
+    nav input { 
+        display: none; 
+    }
+
+    .menu-toggle { 
+        position: absolute; 
+        inline-size: 1px; 
+        block-size: 1px; 
+        opacity: 0; 
+    }
+
+    input:checked ~ ul { 
+        max-height: 500px;
+    }
+
 
     a:hover, 
     .button:hover { 
