@@ -47,6 +47,7 @@
         --primary: #d5def2; 
         --secondary: #3865c9; 
         --accent: #c2343b; 
+        --accent-green: #76885B;
         --text: white; 
         --border: #000000; 
 
@@ -117,15 +118,23 @@
         padding-block: var(--space-lg); 
     }
 
-    header,
-    footer { 
-        background: black; 
+    header { 
+        background: var(--accent-green); 
         display: flex; 
         align-items: center; 
         padding: .75rem 1rem; 
         position: relative; 
         text-align: center; 
         box-shadow: 0 15px 40px var(--secondary);
+        color: black; 
+    }
+
+    footer {
+        display: flex; 
+        align-items: center; 
+        padding: .75rem 1rem; 
+        position: relative; 
+        text-align: center; 
         color: white; 
     }
 }
@@ -164,6 +173,29 @@
         display: grid; 
         gap: var(--space-sm); 
         margin-bottom: var(--space-md); 
+        text-align: left; 
+    }
+
+    form {
+        max-inline-size: 40rem; 
+        margin-inline: auto; 
+        padding: var(--space-lg); 
+        background: rgba(0, 0, 0, 0.15); 
+        border-radius: var(--radius);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.25); 
+        text-align: center;
+    }
+
+    .form-heading { 
+        text-align: center;
+    }
+
+    input, 
+    textarea { 
+        inline-size: 100%; 
+        padding: var(--space-sm); 
+        border: 1px solid var(--border); 
+        border-radius: var(--radius);
     }
     
     .button { 
