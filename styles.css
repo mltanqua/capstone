@@ -129,6 +129,10 @@
         color: black; 
     }
 
+    .site-header a {
+        color: black;
+    }
+
     footer {
         display: flex; 
         align-items: center; 
@@ -323,7 +327,6 @@
     }
 
     .vendor-card { 
-        container-type: inline-size; 
         display: grid; 
         gap: var(--space-md); 
         padding: var(--space-md); 
